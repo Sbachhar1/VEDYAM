@@ -4,108 +4,742 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VEDYAM — Daily Health Mix</title>
-<meta name="description" content="VEDYAM Daily Health Mix — a spoonful of ancient grains, every morning.">
+<meta name="description" content="VEDYAM Daily Health Mix — a traditional Ayurvedic blend, reimagined for everyday vitality.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <style>
   :root{
-    --cream:#faf8f5;
-    --cream-deep:#f2ede4;
-    --charcoal:#2b2724;
-    --charcoal-soft:#5a5450;
-    --olive:#5c6b47;
-    --olive-deep:#465236;
-    --gold:#b8863b;
-    --gold-soft:#d9b170;
-    --line:#e3dccd;
-    --radius:2px;
+    --cream: #faf8f5;
+    --cream-deep: #f2ede4;
+    --charcoal: #2a2620;
+    --charcoal-soft: #5c564c;
+    --sage: #566246;
+    --sage-deep: #3f4a34;
+    --gold: #b08d4f;
+    --line: rgba(42,38,32,0.12);
+    --radius: 2px;
   }
 
-  *{margin:0;padding:0;box-sizing:border-box;}
+  *{ box-sizing: border-box; margin:0; padding:0; }
 
-  html{scroll-behavior:smooth;}
+  html{ scroll-behavior: smooth; }
 
   body{
-    background:var(--cream);
-    color:var(--charcoal);
-    font-family:'Jost', sans-serif;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
 
-  h1,h2,h3, .display{
-    font-family:'Fraunces', serif;
-    font-weight:500;
-    letter-spacing:-0.01em;
-    color:var(--charcoal);
+  h1, h2, h3, .display{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--charcoal);
   }
 
-  .eyebrow{
-    text-transform:uppercase;
-    letter-spacing:0.18em;
-    font-size:0.72rem;
-    font-weight:600;
-    color:var(--olive);
-  }
+  a{ color: inherit; }
 
-  a{color:inherit;text-decoration:none;}
-
-  img{max-width:100%;display:block;}
+  img{ max-width: 100%; display: block; }
 
   .wrap{
-    max-width:1180px;
-    margin:0 auto;
-    padding:0 6vw;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 32px;
   }
 
-  /* ---------- NAV ---------- */
-  header.nav{
-    position:sticky;
-    top:0;
-    z-index:40;
-    background:rgba(250,248,245,0.88);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
+  /* ---------- HEADER ---------- */
+  header{
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
   }
-  .nav-inner{
-    max-width:1180px;
-    margin:0 auto;
-    padding:18px 6vw;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+  .header-inner{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
-  .wordmark{
-    font-family:'Fraunces', serif;
-    font-size:1.35rem;
-    font-weight:600;
-    letter-spacing:0.08em;
+  .logo{
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.14em;
+    font-weight: 600;
   }
-  .wordmark span{color:var(--olive);}
-  .nav-tag{
-    font-size:0.7rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:var(--charcoal-soft);
-    display:none;
+  .logo span{ color: var(--sage); }
+  .tagline-mini{
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--charcoal-soft);
+    display: none;
   }
-  @media(min-width:640px){ .nav-tag{display:block;} }
+  @media(min-width: 640px){
+    .tagline-mini{ display: block; }
+  }
 
   /* ---------- HERO ---------- */
   .hero{
-    padding:64px 0 40px;
+    padding: 64px 0 80px;
   }
   .hero-grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:48px;
-    align-items:center;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
   }
-  @media(min-width:900px){
-    .hero-grid{grid-template-columns:0.95fr 1.05fr; gap:64px;}
+  @media(min-width: 900px){
+    .hero-grid{
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 72px;
+    }
   }
 
+  .eyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    margin-bottom: 22px;
+  }
+  .eyebrow::before{
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+    display: inline-block;
+  }
+
+  .hero h1{
+    font-size: clamp(2.4rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    margin-bottom: 22px;
+  }
+  .hero h1 em{
+    font-style: italic;
+    color: var(--sage-deep);
+  }
+
+  .hero-desc{
+    color: var(--charcoal-soft);
+    font-size: 1.05rem;
+    max-width: 44ch;
+    margin-bottom: 32px;
+  }
+
+  .ingredient-strip{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+  .ingredient-chip{
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    padding: 7px 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--charcoal-soft);
+    background: var(--cream-deep);
+  }
+
+  .price-row{
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .price{
+    font-family: 'Fraunces', serif;
+    font-size: 2.1rem;
+    font-weight: 600;
+  }
+  .price-unit{
+    font-size: 0.85rem;
+    color: var(--charcoal-soft);
+    letter-spacing: 0.02em;
+  }
+
+  .buy-btn{
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    background: var(--sage-deep);
+    color: var(--cream);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 17px 40px;
+    border-radius: var(--radius);
+    transition: background 0.25s ease, transform 0.15s ease;
+  }
+  .buy-btn:hover{ background: var(--sage); }
+  .buy-btn:active{ transform: scale(0.98); }
+  .buy-btn:focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .assurance{
+    margin-top: 18px;
+    font-size: 0.78rem;
+    color: var(--charcoal-soft);
+    letter-spacing: 0.02em;
+  }
+
+  /* ---------- PRODUCT IMAGE ---------- */
+  .product-frame{
+    position: relative;
+    background: var(--cream-deep);
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .product-frame::before{
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(42,38,32,0.15);
+    pointer-events: none;
+    z-index: 2;
+  }
+  #product-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .badge{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--sage-deep);
+    line-height: 1.3;
+    z-index: 3;
+    padding: 6px;
+  }
+
+  /* ---------- BENEFITS ---------- */
+  .benefits{
+    padding: 72px 0;
+    border-top: 1px solid var(--line);
+  }
+  .section-head{
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 48px;
+  }
+  .section-head .eyebrow{ justify-content: center; }
+  .section-head .eyebrow::before{ display: none; }
+  .section-head h2{
+    font-size: clamp(1.8rem, 3.2vw, 2.3rem);
+  }
+
+  .benefit-grid{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  @media(min-width: 720px){
+    .benefit-grid{ grid-template-columns: repeat(3, 1fr); }
+  }
+  .benefit-card{
+    padding: 30px 26px;
+    background: var(--cream-deep);
+    border-radius: var(--radius);
+  }
+  .benefit-mark{
+    font-family: 'Fraunces', serif;
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .benefit-card h3{
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+  }
+  .benefit-card p{
+    color: var(--charcoal-soft);
+    font-size: 0.94rem;
+  }
+
+  /* ---------- HOW TO USE ---------- */
+  .ritual{
+    padding: 72px 0;
+    border-top: 1px solid var(--line);
+    background: var(--cream-deep);
+  }
+  .ritual-inner{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  @media(min-width: 800px){
+    .ritual-inner{ grid-template-columns: 1fr 1fr; gap: 60px; }
+  }
+  .ritual h2{
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    margin-bottom: 18px;
+  }
+  .ritual-desc{
+    color: var(--charcoal-soft);
+    max-width: 42ch;
+  }
+  .step-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .step-list li{
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .step-num{
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    color: var(--sage-deep);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-list h4{
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .step-list p{
+    color: var(--charcoal-soft);
+    font-size: 0.92rem;
+  }
+
+  /* ---------- FOOTER / STICKY CTA ---------- */
+  footer{
+    padding: 48px 0 120px;
+    text-align: center;
+    border-top: 1px solid var(--line);
+  }
+  footer .logo{ font-size: 1.15rem; margin-bottom: 10px; }
+  footer p{
+    color: var(--charcoal-soft);
+    font-size: 0.85rem;
+  }
+
+  .sticky-bar{
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    z-index: 40;
+    box-shadow: 0 -6px 24px rgba(42,38,32,0.06);
+  }
+  .sticky-bar .price{ font-size: 1.3rem; }
+  .sticky-bar .buy-btn{ padding: 13px 26px; font-size: 0.85rem; }
+
+  /* ---------- MODAL ---------- */
+  .modal-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(42,38,32,0.45);
+    backdrop-filter: blur(2px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 20px;
+  }
+  .modal-overlay.active{ display: flex; }
+
+  .modal{
+    background: var(--cream);
+    width: 100%;
+    max-width: 440px;
+    border-radius: var(--radius);
+    padding: 40px 32px 32px;
+    position: relative;
+    animation: modalIn 0.25s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  @keyframes modalIn{
+    from{ opacity: 0; transform: translateY(12px); }
+    to{ opacity: 1; transform: translateY(0); }
+  }
+
+  .modal-close{
+    position: absolute;
+    top: 18px; right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--charcoal-soft);
+  }
+  .modal-close:hover{ color: var(--charcoal); }
+
+  .modal h3{
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+  }
+  .modal-sub{
+    color: var(--charcoal-soft);
+    font-size: 0.88rem;
+    margin-bottom: 26px;
+  }
+
+  .field{
+    margin-bottom: 18px;
+  }
+  .field label{
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--charcoal-soft);
+    margin-bottom: 7px;
+  }
+  .field input, .field textarea{
+    width: 100%;
+    border: 1px solid var(--line);
+    background: var(--cream-deep);
+    padding: 12px 14px;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    border-radius: var(--radius);
+    resize: none;
+  }
+  .field textarea{ min-height: 78px; }
+  .field input:focus, .field textarea:focus{
+    outline: none;
+    border-color: var(--sage-deep);
+  }
+
+  .field-error{
+    font-size: 0.72rem;
+    color: #a14b3a;
+    margin-top: 5px;
+    display: none;
+  }
+  .field.invalid input, .field.invalid textarea{
+    border-color: #a14b3a;
+  }
+  .field.invalid .field-error{ display: block; }
+
+  .modal-submit{
+    width: 100%;
+    margin-top: 6px;
+  }
+
+  .order-summary{
+    background: var(--cream-deep);
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    color: var(--charcoal-soft);
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .order-summary strong{ color: var(--charcoal); }
+
+  @media(max-width: 480px){
+    .modal{ padding: 34px 22px 26px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <div class="logo">VEDY<span>A</span>M</div>
+    <div class="tagline-mini">Rooted in tradition, made for today</div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">100% Natural &middot; Ayurvedic Blend</div>
+      <h1>Nourishment,<br><em>the old way.</em></h1>
+      <p class="hero-desc">
+        VEDYAM Daily Health Mix brings together time-tested herbs and grains into one
+        wholesome blend — a small daily ritual for steady energy, digestion, and immunity.
+      </p>
+
+      <div class="ingredient-strip">
+        <span class="ingredient-chip">Ashwagandha</span>
+        <span class="ingredient-chip">Moringa</span>
+        <span class="ingredient-chip">Shatavari</span>
+        <span class="ingredient-chip">Ragi</span>
+        <span class="ingredient-chip">Foxtail Millet</span>
+      </div>
+
+      <div class="price-row">
+        <span class="price">₹99</span>
+        <span class="price-unit">/ 100g pack</span>
+      </div>
+
+      <button class="buy-btn" id="buyNowBtn">Buy Now</button>
+      <div class="assurance">Cash on delivery available &middot; Ships across India</div>
+    </div>
+
+    <div class="product-frame">
+      <img src="product.jpg" id="product-img" alt="VEDYAM Daily Health Mix, 100g pack">
+      <div class="badge">100%<br>Natural</div>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Why VEDYAM</div>
+      <h2>A blend built with intent</h2>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <span class="benefit-mark">I.</span>
+        <h3>Daily Vitality</h3>
+        <p>A gentle, sustained source of energy through the day — no crashes, no additives.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-mark">II.</span>
+        <h3>Gut First</h3>
+        <p>Traditional grains and herbs chosen to support digestion from the very first spoon.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-mark">III.</span>
+        <h3>Immunity, Daily</h3>
+        <p>Adaptogens and micronutrients that quietly build resilience, one day at a time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ritual">
+  <div class="wrap ritual-inner">
+    <div>
+      <h2>The daily ritual</h2>
+      <p class="ritual-desc">
+        Three steps, once a day. VEDYAM is designed to fit into your morning without
+        asking much of it.
+      </p>
+    </div>
+    <ul class="step-list">
+      <li>
+        <span class="step-num">1</span>
+        <div>
+          <h4>Mix</h4>
+          <p>Add 2 tablespoons of VEDYAM to warm milk or water.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div>
+          <h4>Stir</h4>
+          <p>Blend until smooth — no lumps, no fuss.</p>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <div>
+          <h4>Sip</h4>
+          <p>Enjoy first thing in the morning, on an empty stomach for best results.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">VEDYAM</div>
+    <p>&copy; <span id="year"></span> VEDYAM. Made with care, rooted in tradition.</p>
+  </div>
+</footer>
+
+<!-- Mobile sticky buy bar -->
+<div class="sticky-bar" id="stickyBar">
+  <span class="price">₹99</span>
+  <button class="buy-btn" id="buyNowBtnSticky">Buy Now</button>
+</div>
+
+<!-- Order Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+    <h3>Complete your order</h3>
+    <p class="modal-sub">Fill in your details and we'll confirm your order on WhatsApp.</p>
+
+    <div class="order-summary">
+      <span>VEDYAM Daily Health Mix (100g)</span>
+      <strong>₹99</strong>
+    </div>
+
+    <form id="orderForm" novalidate>
+      <div class="field" id="nameField">
+        <label for="custName">Full Name</label>
+        <input type="text" id="custName" name="custName" placeholder="e.g. Priya Sharma" autocomplete="name">
+        <div class="field-error">Please enter your name.</div>
+      </div>
+
+      <div class="field" id="phoneField">
+        <label for="custPhone">Phone Number</label>
+        <input type="tel" id="custPhone" name="custPhone" placeholder="e.g. 9876543210" autocomplete="tel">
+        <div class="field-error">Please enter a valid 10-digit phone number.</div>
+      </div>
+
+      <div class="field" id="addressField">
+        <label for="custAddress">Full Delivery Address</label>
+        <textarea id="custAddress" name="custAddress" placeholder="House no., street, city, state, PIN code" autocomplete="street-address"></textarea>
+        <div class="field-error">Please enter your full delivery address.</div>
+      </div>
+
+      <button type="submit" class="buy-btn modal-submit">Confirm on WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- CONFIG ----
+  const WHATSAPP_NUMBER = "917865935225"; // country code + number, no + or spaces
+  const PRODUCT_NAME = "VEDYAM Daily Health Mix (100g)";
+  const PRODUCT_PRICE = "₹99";
+
+  const overlay = document.getElementById('modalOverlay');
+  const openButtons = [document.getElementById('buyNowBtn'), document.getElementById('buyNowBtnSticky')];
+  const closeBtn = document.getElementById('modalClose');
+  const form = document.getElementById('orderForm');
+  const stickyBar = document.getElementById('stickyBar');
+  const heroBuyBtn = document.getElementById('buyNowBtn');
+
+  function openModal(){
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.getElementById('custName').focus();
+  }
+  function closeModal(){
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  openButtons.forEach(btn => btn.addEventListener('click', openModal));
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => {
+    if(e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && overlay.classList.contains('active')) closeModal();
+  });
+
+  // Hide sticky bar once hero buy button is visible on screen
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      stickyBar.style.display = entry.isIntersecting ? 'none' : 'flex';
+    });
+  }, { threshold: 0.1 });
+  observer.observe(heroBuyBtn);
+
+  function setFieldValid(fieldEl){ fieldEl.classList.remove('invalid'); }
+  function setFieldInvalid(fieldEl){ fieldEl.classList.add('invalid'); }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const nameField = document.getElementById('nameField');
+    const phoneField = document.getElementById('phoneField');
+    const addressField = document.getElementById('addressField');
+
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    const address = document.getElementById('custAddress').value.trim();
+
+    let valid = true;
+
+    if(name.length < 2){
+      setFieldInvalid(nameField);
+      valid = false;
+    } else {
+      setFieldValid(nameField);
+    }
+
+    const phoneDigits = phone.replace(/\D/g, '');
+    if(phoneDigits.length < 10){
+      setFieldInvalid(phoneField);
+      valid = false;
+    } else {
+      setFieldValid(phoneField);
+    }
+
+    if(address.length < 8){
+      setFieldInvalid(addressField);
+      valid = false;
+    } else {
+      setFieldValid(addressField);
+    }
+
+    if(!valid) return;
+
+    const message =
+`Hello VEDYAM! I'd like to place an order:
+
+*Product:* ${PRODUCT_NAME}
+*Price:* ${PRODUCT_PRICE}
+
+*Customer Details*
+Name: ${name}
+Phone: ${phone}
+Delivery Address: ${address}
+
+Please confirm my order. Thank you!`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+    window.location.href = waLink;
+  });
+</script>
+
+</body>
+</html>
   .art-stage{
     position:relative;
     display:flex;
