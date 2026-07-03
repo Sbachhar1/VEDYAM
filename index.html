@@ -8,7 +8,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="product.jpg" fetchpriority="high">
 <style>
   :root{
     --cream:#faf8f5;
@@ -105,6 +104,45 @@
   }
   @media(min-width:900px){
     .hero-grid{grid-template-columns:0.95fr 1.05fr; gap:64px;}
+  }
+
+  .art-stage{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .seal{
+    position:absolute;
+    width:112%;
+    max-width:520px;
+    aspect-ratio:1/1;
+    animation:spin 60s linear infinite;
+    opacity:0.9;
+  }
+  @media(prefers-reduced-motion: reduce){ .seal{animation:none;} }
+  @keyframes spin{ to{ transform:rotate(360deg); } }
+
+  .product-frame{
+    position:relative;
+    width:78%;
+    max-width:380px;
+    aspect-ratio:4/5;
+    background:var(--cream-deep);
+    border-radius:var(--radius);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    box-shadow:0 24px 60px -20px rgba(43,39,36,0.28);
+  }
+  #product-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .frame-badge{
+    position:absolute;
   }
 
   .art-stage{
